@@ -8,16 +8,17 @@
 <button onclick="choi()">choi</button>
 <script>
     function choi() {
-        let so = prompt('nhap vao mot so')
-        let ngaunhien =  Math.floor(Math.random()*100)
-        console.log(ngaunhien)
-        if(so === ngaunhien){
-            document.writeln('ban doan dung roi')
-        }else if(so > ngaunhien){
+        for (let i = 0; i < 3; i++)
+              ngaunhien = Math.floor(Math.random() * 100)
+        let so = +prompt('nhap vao mot so')
+        if (so < ngaunhien) {
+            document.writeln('ban doan hut roi')
+        } else if (so > ngaunhien) {
             document.write('ban doan hut roi')
-        }else{
-            document.write('ban doan hut roi')
-        }
+        } else {
+            document.write('ban doan dung roi')
+
+        }console.log(ngaunhien)
 
     }
 </script>
