@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    var text = 0;
+    var i = 0;
+    while (i < 5) {
+        i++;
+        if (i === 3) {
+            continue;
+        }
+        text+=i;
+    }
+    alert(text);
+</script>
+
 </body>
 </html>
