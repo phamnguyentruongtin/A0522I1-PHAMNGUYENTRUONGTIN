@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemtra() {
+       let n1 = 0
+       let n2 = 1
+       let fibonaci = 0
+       while (fibonaci<num) {
+           fibonaci = n1 + n2
+           n1 = n2
+           n2 = fibonaci
+       }
+        if(num === fibonaci){
+            document.write(num +' la so fibonaci')
+        }else{
+            document.write(num +' khong phai la so fibonaci')
+        }
+    }
+    let num = +prompt('nhap so ')
+    kiemtra(num)
+
+
+</script>
+</body>
+</html>
