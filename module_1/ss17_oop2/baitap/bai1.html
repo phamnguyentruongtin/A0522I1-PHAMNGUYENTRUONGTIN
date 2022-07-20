@@ -6,10 +6,11 @@
 </head>
 <body>
 <script>
-    class apple{
+    class Apple{
         constructor(weight) {
-            this.weight = weight
+            this.weight = weight;
         }
+
         decrease(){
             if(this.weight > 0){
                 this.weight--;
@@ -23,37 +24,64 @@
                 return false;
             }
         }
-        getweight(){
-            return this.weight
+
+        getWeight(){
+            return this.weight;
         }
     }
-    class human{
-        constructor(name,gender,weight) {
-            this.name = name
-            this.gender = gender
-            this.weight = weight
 
+    class Human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
         }
-        setname(){
-            this.name = name
+
+        isMale(){
+            if(this.gender == "Male"){
+                return true;
+            } else {
+                return false;
+            }
         }
-        getname(){
-            return this.name = name
-        }
-        getmale(){
-           if(this.male = 'male'){
-               return true
-           }else{
-               return false
-           }
-        }
-        checkapple(){
+
+        checkApple(apple){
             return apple.isEmpty();
         }
 
+        eat(apple){
+            if(apple.getWeight() > 0){
+                this.weight++;
+                apple.decrease();
+            }
+        }
+
+        say(content){
+            document.write(this.name + " say: " + content + "<br>")
+        }
+
+        getWeight(){
+            return this.weight;
+        }
     }
 
-</script>
+    let apple = new Apple(10);
+    // document.write(apple.getWeight());
 
+    let adam = new Human("Adam", "Male", 60);
+    let eva = new Human("Eva", "Female", 50);
+
+
+    while (!apple.isEmpty()){
+        eva.eat(apple);
+        adam.eat(apple);
+    }
+
+    document.write("Eva weight: "+eva.getWeight() + "<br>");
+    document.write("Adam weight: "+adam.getWeight() + "<br>");
+    document.write("Apple weight:" + apple.getWeight() + "<br>");
+    adam.say("I love you! Eva");
+
+</script>
 </body>
 </html>
