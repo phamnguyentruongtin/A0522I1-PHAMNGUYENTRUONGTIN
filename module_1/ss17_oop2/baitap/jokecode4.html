@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<button onclick='create()'>Thêm Khách Hàng</button>
+
+<p id="hienthibang"></p>
+
+</body>
+<script>
+    class Qlbanhang {
+        constructor(ten, diachi, hang, soluong) {
+            this.ten = ten
+            this.diachi = diachi
+            this.hang = hang
+            this.soluong = soluong
+        }
+
+        setten(ten) {
+            this.ten = ten
+        }
+
+        setdiachi(diachi) {
+            this.diachi = diachi
+        }
+
+        sethang(hang) {
+            this.hang = hang
+        }
+
+        setsoluong(soluong) {
+            this.soluong = soluong
+        }
+
+        getten2() {
+            return this.ten
+        }
+
+        getdiachi() {
+            return this.diachi
+        }
+
+        gethang() {
+            return this.hang
+        }
+
+        getsoluong() {
+            return this.soluong
+        }
+    }
+
+    let ar = []
+    function create() {
+
+        let newname = prompt('nhập tên')
+        let newage = prompt('nhập tuổi')
+        let newbenh = prompt('nhập bệnh')
+        let newque = prompt('nhập quê quán')
+        let newbenhnhan = new Qlbanhang(newname, newage, newbenh, newque)
+        ar.push(newbenhnhan)
+        hienthiban(ar);
+    }
+
+    function hienthiban() {
+        let table = '<table>\n' +
+            '    <tr>\n' +
+            '        <th>HỌ TÊN</th>\n' +
+            '        <th>ĐỊA CHỈ</th>\n' +
+            '        <th>LOẠI HÀNG</th>\n' +
+            '        <th>SỐ LƯỢNG</th>\n' +
+            '    </tr>\n'
+        for (let i = 0; i <= ar.length; i++) {
+            table += '<tr>\n' +
+                '        <td>' + ar[i].getten2() + '</td>\n' +
+                '        <td>' + ar[i].getdiachi() + '</td>\n' +
+                '        <td>' + ar[i].gethang() + '</td>\n' +
+                '        <td>' + ar[i].getsoluong() + '</td>\n' +
+                '    </tr>'
+        }
+        table += '</table>'
+        document.getElementById('hienthibang').innerHTML = table
+
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Bệnh Nhân</title>
+</head>
+<body>
+<style>
+    body {
+        background-image: linear-gradient(to left, #676B69, rgba(210, 214, 218, 0.3));
+    }
+</style>
+<h2 style="text-align: center">Danh Sách Bệnh Nhân</h2>
+<p id='resuit'></p>
+</body>
+<script>
+    class Hopistal {
+        constructor(ten, tuoi, benh, quequan) {
+            this.ten = ten;
+            this.tuoi = tuoi;
+            this.benh = benh;
+            this.quequan = quequan;
+        }
+
+        setten(ten) {
+            this.ten = ten;
+        }
+
+        settuoi(tuoi) {
+            this.tuoi = tuoi;
+        }
+
+        setbenh(benh) {
+            this.benh = benh;
+        }
+
+        setquequan(quequan) {
+            this.quequan = quequan;
+        }
+
+        getten() {
+            return this.ten;
+        }
+
+        gettuoi() {
+            return this.tuoi;
+        }
+
+        getbenh() {
+            return this.benh;
+        }
+
+        getquequan() {
+            return this.quequan;
+        }
+
+
+    }
+
+    let benhnhan1 = new Hopistal();
+    let setten1 = benhnhan1.setten('Nguyễn Ngọc Trung bảo');
+    let settuoi1 = benhnhan1.settuoi(19);
+    let setbenh1 = benhnhan1.setbenh('Chấn Thương Phần Mềm');
+    let setquequan1 = benhnhan1.setquequan('Thăng bình , Quảng Nam');
+    let getten = benhnhan1.getten();
+    let gettuoi = benhnhan1.gettuoi();
+    let getbenh = benhnhan1.getbenh();
+    let getquequan = benhnhan1.getquequan();
+
+    let benhnhan2 = new Hopistal();
+    let setten2 = benhnhan2.setten('Nguyễn Ngọc Huy bảo');
+    let settuoi2 = benhnhan2.settuoi(19);
+    let setbenh2 = benhnhan2.setbenh('Chấn Thương Phần Mềm');
+    let setquequan2 = benhnhan2.setquequan('Thăng bình , Quảng Nam');
+    let getten1 = benhnhan2.getten();
+    let gettuoi1 = benhnhan2.gettuoi();
+    let getbenh1 = benhnhan2.getbenh();
+    let getquequan1 = benhnhan2.getquequan();
+
+    let arry = [benhnhan1, benhnhan2];
+
+
+    function display() {
+        let str = '<table  style="position: absolute; left: 50%; transform: translate(-50% ,0%)" border="10px">\n' +
+            '    <tr>\n' +
+            '        <th style="background-color: lightslategrey">Tên</th>\n' +
+            '        <th style="background-color: lightslategrey">Tuổi</th>\n' +
+            '        <th style="background-color: lightslategrey">Bệnh</th>\n' +
+            '        <th style="background-color: lightslategrey">Quê quán</th>\n' +
+            '        \n' +
+            '<th style="background-color: lightslategrey">Tùy Chỉnh</th>'
+        '    </tr>\n'
+        for (let i = 0; i < arry.length; i++) {
+            str += '<tr>' +
+                '<td style="background-color: lightgrey">' + arry[i].getten() + '</td>' +
+                '<td style="background-color: lightgrey">' + arry[i].gettuoi() + '</td>' +
+                '<td style="background-color: lightgrey">' + arry[i].getbenh() + '</td>' +
+                '<td style="background-color: lightgrey">' + arry[i].getquequan() + '</td>' +
+                '<td>' +
+                '<button   style="background-color: #5f6062 "  onclick="remove(' + i + ') ">Xóa</button>' +
+                '<button  style="background-color: lightgrey" onclick="edit(' + i + ')">Sửa</button>' +
+                '<button style="background: lightslategrey"  onclick="create()">Thêm Bệnh Nhân</button>' +
+                '</td>' +
+                '</tr>'
+        }
+        str += '</table>';
+        document.getElementById('resuit').innerHTML = str;
+
+    }
+
+    function remove(value) {
+        let xoa = confirm('bạn cso muốn xóa không');
+        if (xoa) {
+            arry.splice(value, 1);
+            alert('xóa thành công');
+        }
+        display(arry);
+    }
+
+    function create() {
+        let newname = prompt('nhập tên');
+        let newage = prompt('nhập tuổi');
+        let newbenh = prompt('nhập bệnh');
+        let newque = prompt('nhập quê quán');
+        let newbenhnhan = new Hopistal(newname, newage, newbenh, newque);
+        arry.push(newbenhnhan);
+        display(arry);
+
+    }
+
+    function edit(value) {
+        let newname = prompt('nhập tên');
+        let newage = prompt('nhập tuổi');
+        let newbenh = prompt('nhập bệnh');
+        let newque = prompt('nhập quê quán');
+        let newbenhnhan = new Hopistal(newname, newage, newbenh, newque);
+        arry[value] = newbenhnhan;
+        display(arry);
+    }
+
+    display();
+</script>
+</html>
